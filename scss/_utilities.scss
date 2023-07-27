@@ -1,0 +1,218 @@
+
+//   -SPACING SYSTEM (px):   2 / 4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 / 80 / 96 / 128
+
+//    -FONT SIZE SYSTEM (px):  10 / 12 / 14 / 16 / 18 / 20 / 24 / 30 / 36 / 44 / 52 / 62 / 74 / 86 / 98 
+
+
+*,
+*::after,
+*::before{
+    margin : 0;
+    padding : 0;
+    box-sizing: inherit;
+}
+
+html{
+    font-size: 62.5%;
+}
+
+body{
+    font-family: 'Lato',sans-serif;
+    line-height: 1;
+    color : #333;
+    font-weight: 500;
+    scroll-behavior: smooth;
+    // background: #a5d8ff;
+    box-sizing: border-box;
+    padding : 3rem;
+}
+
+a{
+    text-decoration: none;
+    color : #fff;
+}
+
+img{
+    width : 100%;
+}
+
+.container{
+    max-width: 140rem;
+    margin: 0 auto;
+    padding : 0 3.2rem;
+}
+
+
+.btn{
+    padding : 1.5rem 3.2rem;
+    font-size: 2rem;
+    font-weight: 700;
+    border-radius: 10rem;
+    text-align: center;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    width : 20rem;
+    position: relative;
+
+    &:hover{
+        transform: translateY(-3px);
+        box-shadow: 1 1rem 2rem rgba(0,0,0,0.2);
+    }
+    
+    &:active{
+        transform: translateY(-1px);
+        box-shadow: 1 1rem 2rem rgba(0,0,0,0.2);
+    }
+}
+
+.btn::after{
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 10rem;
+    position: absolute;
+    top:0;
+    left:0;
+    z-index: -1;
+    transition: all 0.4s;
+}
+
+.btn:hover::after{
+    transform: scaleX(1.4) scaleY(1.6);
+    opacity: 0;
+}
+
+
+.btn-transparent{
+    background: transparent !important;
+    border : 2px solid $color-primary;
+    transition: all 0.4s ease-out;
+
+    &:hover{
+        background: $color-primary;
+        color: #fff;
+    }
+}
+
+.btn-animated{
+    animation: moveInBottom 0.5s ease-out 0.75s backwards;
+}
+
+.btn-transparent::after{
+    background: $color-primary;
+}
+
+.btn-light{
+    background: $color-primary;
+    transition: all 0.4s ease-out;
+    border : 2px solid transparent;
+
+    &:hover{
+        background: transparent;
+        color : $color-primary;
+        border-color: $color-primary;
+    }
+
+    &::after{
+        background: $color-primary;
+    }
+}
+
+.btn-dark{
+    background: $background-primary;
+    transition: all 0.4s ease-out;
+    border : 2px solid transparent;
+    // border-radius: 0;
+
+    &:hover{
+        background: transparent;
+        color : $background-primary;
+        border-color: $background-primary;
+    }
+
+    &::after{
+        background: $background-primary;
+    }
+}
+
+.no-round{
+    border-radius: 0;
+
+    &::after{
+        border-radius: 0;
+    }
+}
+
+.blue{
+    color: $color-primary;
+    font-weight: 900;
+}
+.dark-blue{
+    color: $background-primary;
+    font-weight: 900;
+}
+
+.grid{
+    display: grid;
+}
+
+.grid-2-cols{
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.grid-3-cols{
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.grid-4-cols{
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.grid-5-cols{
+    grid-template-columns: repeat(5, 1fr);
+}
+
+// Animations
+
+@keyframes moveInLeft {
+    0%{
+        opacity: 0;
+        transform: translateX(-10rem);
+    }
+    80%{
+        transform: translateX(1rem);
+
+    }
+    100%{
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+
+@keyframes moveInRight {
+    0%{
+        opacity: 0;
+        transform: translateX(10rem);
+    }
+    80%{
+        transform: translateX(-1rem);
+
+    }
+    100%{
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+
+@keyframes moveInBottom {
+    0%{
+        opacity: 0;
+        transform: translateY(3rem);
+    }
+    100%{
+        opacity: 1;
+        transform: translate(0);
+    }
+}
